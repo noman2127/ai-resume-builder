@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "default_auth_secret_key_12345";
+const JWT_SECRET = process.env.JWT_SECRET || "your_super_secret_jwt_key_that_is_at_least_32_characters_long_for_security";
 
 export const generateToken = (userId: string) => {
   return jwt.sign({ userId }, JWT_SECRET, {

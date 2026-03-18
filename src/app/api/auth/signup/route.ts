@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     });
 
     // Generate token
-    const token = generateToken(user._id as string);
+    const token = generateToken(user._id.toString());
 
     return NextResponse.json(
       {
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
         message: "User registered successfully",
         token,
         user: {
-          id: user._id,
+          id: user._id.toString(),
           name: user.name,
           email: user.email,
         },

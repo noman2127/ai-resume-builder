@@ -35,14 +35,14 @@ export async function POST(req: Request) {
     }
 
     // Generate token
-    const token = generateToken(user._id as string);
+    const token = generateToken(user._id.toString())
 
     return NextResponse.json({
       success: true,
       message: "Login successful",
       token,
       user: {
-        id: user._id,
+        id: user._id.toString(),
         name: user.name,
         email: user.email,
       },
