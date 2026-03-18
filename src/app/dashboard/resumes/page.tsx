@@ -40,7 +40,13 @@ export default function MyResumesPage() {
       });
       const result = await res.json();
       if (result.success) {
-        setResumes(result.data);
+        const data = result.data as Array<{ _id: unknown }>;
+        setResumes(
+          data.map((r) => ({
+            ...r,
+            _id: String(r._id),
+          })) as ResumeItem[]
+        );
       } else {
         setError(result.error || "Failed to load resumes");
       }

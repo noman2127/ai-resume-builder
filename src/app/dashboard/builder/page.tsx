@@ -58,6 +58,7 @@ function BuilderContent() {
         .then((result) => {
           if (result.success && result.data) {
             const r = result.data;
+            setCurrentResumeId(String(r._id));
             setData({
               fullName: r.fullName || "",
               email: r.email || "",
@@ -147,8 +148,9 @@ function BuilderContent() {
       }
 
       if (!currentResumeId && result.data?._id) {
-        setCurrentResumeId(result.data._id);
-        const newUrl = `/dashboard/builder?id=${result.data._id}`;
+        const idStr = String(result.data._id);
+        setCurrentResumeId(idStr);
+        const newUrl = `/dashboard/builder?id=${idStr}`;
         window.history.replaceState({ ...window.history.state, as: newUrl, url: newUrl }, '', newUrl);
       }
 

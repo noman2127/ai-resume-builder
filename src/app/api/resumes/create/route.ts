@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Resume from "@/models/Resume";
 import { verifyToken } from "@/lib/auth";
+import { serializeResume } from "@/lib/serializers";
 
 // Helper to get userId from Authorization header
 async function getAuthenticatedUserId(req: Request) {
@@ -37,7 +38,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json(
-      { success: true, message: "Resume saved successfully", data: resume },
+      { success: true, message: "Resume saved successfully", data: serializeResume(resume) },
       { status: 201 }
     );
   } catch (error) {

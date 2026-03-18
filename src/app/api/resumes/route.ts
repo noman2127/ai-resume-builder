@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Resume from "@/models/Resume";
 import { verifyToken } from "@/lib/auth";
+import { serializeResume } from "@/lib/serializers";
 
 // Helper to get userId from Authorization header
 async function getAuthenticatedUserId(req: Request) {
@@ -22,7 +23,8 @@ export async function GET(req: Request) {
 
     await connectDB();
     const resumes = await Resume.find({ userId }).sort({ updatedAt: -1 });
-    return NextResponse.json({ success: true, data: resumes });
+    const sanitized = resumes.map(serializeResume);
+    return NextResponse.json({ success: true, data: sanitized });
   } catch (error) {
     console.error("Error fetching resumes:", error);
     return NextResponse.json(
