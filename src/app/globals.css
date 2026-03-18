@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  :root {
+    --background: #020617; /* dark slate-950 */
+    --foreground: #f8fafc; /* slate-50 */
+
+    --border: #1e293b; /* slate-800 */
+    --input: #0f172a; /* slate-900 */
+    --ring: #6366f1; /* indigo-500 */
+
+    --primary: #818cf8; /* indigo-400 */
+    --primary-foreground: #ffffff;
+
+    --secondary: #0f172a; /* slate-900 */
+    --secondary-foreground: #f8fafc;
+
+    --accent: #fb7185; /* rose-400 */
+    --accent-foreground: #ffffff;
+
+    --muted: #1e293b; /* slate-800 */
+    --muted-foreground: #94a3b8; /* slate-500 */
+
+    --radius: 1rem;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.3);
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-slate-900/60 backdrop-blur-xl border border-white/5;
+  }
+  
+  .glass-card {
+    @apply bg-slate-900/40 backdrop-blur-xl border border-white/5 
+           shadow-[0_8px_32px_0_rgba(0,0,0,0.4)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400;
+  }
+
+  .premium-shadow {
+    @apply shadow-[0_20px_50px_rgba(0,0,0,0.5)];
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 rounded-full dark:bg-slate-800;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-300 dark:bg-slate-700;
+  }
+}
