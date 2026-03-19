@@ -10,7 +10,7 @@ async function getAuthenticatedUserId(req: Request) {
   if (!authHeader || !authHeader.startsWith("Bearer ")) return null;
   const token = authHeader.split(" ")[1];
   const decoded = verifyToken(token);
-  return decoded ? decoded.userId : null;
+  return decoded ? decoded.id : null;
 }
 
 // GET /api/resumes — Fetch all resumes for the logged-in user
