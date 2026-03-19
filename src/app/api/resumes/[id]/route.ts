@@ -10,13 +10,13 @@ async function getAuthenticatedUserId(req: Request) {
   if (!authHeader || !authHeader.startsWith("Bearer ")) return null;
   const token = authHeader.split(" ")[1];
   const decoded = verifyToken(token);
-  return decoded ? decoded.userId : null;
+  return decoded ? decoded.id : null;
 }
 
 // GET /api/resumes/[id] — Fetch a single resume
 export async function GET(
   req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const userId = await getAuthenticatedUserId(req);
@@ -25,7 +25,7 @@ export async function GET(
     }
 
     await connectDB();
-    const { id } = await params;
+   const { id } = params; 
     const resume = await Resume.findOne({ _id: id, userId });
 
     if (!resume) {
@@ -48,7 +48,7 @@ export async function GET(
 // PUT /api/resumes/[id] — Update a resume
 export async function PUT(
   req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const userId = await getAuthenticatedUserId(req);
@@ -57,7 +57,7 @@ export async function PUT(
     }
 
     await connectDB();
-    const { id } = await params;
+    const { id } = params;
     const body = await req.json();
 
     const resume = await Resume.findOneAndUpdate(
@@ -100,7 +100,7 @@ export async function PUT(
 // DELETE /api/resumes/[id] — Delete a resume
 export async function DELETE(
   req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const userId = await getAuthenticatedUserId(req);
@@ -109,7 +109,7 @@ export async function DELETE(
     }
 
     await connectDB();
-    const { id } = await params;
+    const { id } = params;
     const resume = await Resume.findOneAndDelete({ _id: id, userId });
 
     if (!resume) {

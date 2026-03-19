@@ -204,7 +204,7 @@ function TextAreaSection({ title, name, value, onChange, icon, placeholder, rows
         value={value}
         onChange={onChange}
         rows={rows}
-        className={`w-full p-6 bg-white/5 border border-white/5 rounded-[2.5rem] text-sm font-medium text-white focus:outline-none focus:ring-4 ${ringClasses} focus:bg-white/10 ${focusBorderClasses} transition-all placeholder:text-slate-700 resize-none whitespace-pre-wrap`}
+        className={`w-full p-6 bg-white/5 border border-white/5 rounded-2.5rem text-sm font-medium text-white focus:outline-none focus:ring-4 ${ringClasses} focus:bg-white/10 ${focusBorderClasses} transition-all placeholder:text-slate-700 resize-none whitespace-pre-wrap`}
         placeholder={placeholder}
       />
     </section>
