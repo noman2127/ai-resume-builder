@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Resume from "@/models/Resume";
 import { verifyToken } from "@/lib/auth";
-import { serializeResume } from "@/lib/serializers";
 
 // Helper to get userId from Authorization header
 async function getAuthenticatedUserId(req: Request) {
@@ -10,7 +9,7 @@ async function getAuthenticatedUserId(req: Request) {
   if (!authHeader || !authHeader.startsWith("Bearer ")) return null;
   const token = authHeader.split(" ")[1];
   const decoded = verifyToken(token);
-  return decoded ? decoded.id : null;
+  return decoded ? decoded.userId : null;
 }
 
 // POST /api/resumes/create — Save a new resume in MongoDB
@@ -38,7 +37,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json(
-      { success: true, message: "Resume saved successfully", data: serializeResume(resume) },
+      { success: true, message: "Resume saved successfully", data: resume },
       { status: 201 }
     );
   } catch (error) {

@@ -10,7 +10,7 @@ async function getAuthenticatedUserId(req: Request) {
   if (!authHeader || !authHeader.startsWith("Bearer ")) return null;
   const token = authHeader.split(" ")[1];
   const decoded = verifyToken(token);
-  return decoded ? decoded.id : null;
+  return decoded ? decoded.userId : null;
 }
 
 // GET /api/resumes/[id] — Fetch a single resume
@@ -25,7 +25,7 @@ export async function GET(
     }
 
     await connectDB();
-   const { id } = params; 
+    const { id } = params;
     const resume = await Resume.findOne({ _id: id, userId });
 
     if (!resume) {
@@ -86,7 +86,7 @@ export async function PUT(
     return NextResponse.json({
       success: true,
       message: "Resume updated successfully",
-      data: serializeResume(resume),
+      data: resume,
     });
   } catch (error) {
     console.error("Error updating resume:", error);
