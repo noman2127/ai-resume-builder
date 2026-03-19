@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Resume from "@/models/Resume";
 import { verifyToken } from "@/lib/auth";
 import { serializeResume } from "@/lib/serializers";
 
 // Helper to get userId from Authorization header
-async function getAuthenticatedUserId(req: Request) {
+async function getAuthenticatedUserId(req: NextRequest | Request) {
   const authHeader = req.headers.get("Authorization");
   if (!authHeader || !authHeader.startsWith("Bearer ")) return null;
   const token = authHeader.split(" ")[1];
@@ -15,8 +15,8 @@ async function getAuthenticatedUserId(req: Request) {
 
 // GET /api/resumes/[id] — Fetch a single resume
 export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const userId = await getAuthenticatedUserId(req);
@@ -25,7 +25,7 @@ export async function GET(
     }
 
     await connectDB();
-    const { id } = params;
+    const { id } = await params;
     const resume = await Resume.findOne({ _id: id, userId });
 
     if (!resume) {
@@ -47,8 +47,8 @@ export async function GET(
 
 // PUT /api/resumes/[id] — Update a resume
 export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const userId = await getAuthenticatedUserId(req);
@@ -57,7 +57,7 @@ export async function PUT(
     }
 
     await connectDB();
-    const { id } = params;
+    const { id } = await params;
     const body = await req.json();
 
     const resume = await Resume.findOneAndUpdate(
@@ -99,8 +99,8 @@ export async function PUT(
 
 // DELETE /api/resumes/[id] — Delete a resume
 export async function DELETE(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const userId = await getAuthenticatedUserId(req);
@@ -109,7 +109,7 @@ export async function DELETE(
     }
 
     await connectDB();
-    const { id } = params;
+    const { id } = await params;
     const resume = await Resume.findOneAndDelete({ _id: id, userId });
 
     if (!resume) {
