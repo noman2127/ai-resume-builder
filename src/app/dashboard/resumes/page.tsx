@@ -117,7 +117,7 @@ export default function MyResumesPage() {
         </div>
         <Link
           href="/dashboard/builder"
-          className="bg-primary text-white px-8 py-4 rounded-[2rem] font-black shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group"
+          className="w-full md:w-auto bg-primary text-white px-6 py-4 md:px-8 md:py-4 rounded-[2rem] font-black shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group"
         >
           <Plus className="h-6 w-6" />
           New Masterpiece
@@ -206,7 +206,7 @@ export default function MyResumesPage() {
           ))}
         </div>
       ) : (
-        <div className="glass-card bg-[#0f172a]/60 p-20 text-center">
+        <div className="glass-card bg-[#0f172a]/60 p-8 sm:p-12 md:p-20 text-center">
           <div className="bg-white/5 w-24 h-24 rounded-[2rem] flex items-center justify-center mx-auto mb-10 border border-white/5">
             <FileText className="h-10 w-10 text-slate-700" />
           </div>
@@ -219,7 +219,7 @@ export default function MyResumesPage() {
           {!searchQuery && (
             <Link
               href="/dashboard/builder"
-              className="inline-flex items-center justify-center rounded-[2rem] bg-slate-900 text-white px-10 py-5 text-lg font-black transition-all hover:bg-slate-800 hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-[2rem] bg-slate-900 text-white px-8 md:px-10 py-4 md:py-5 text-base md:text-lg font-black transition-all hover:bg-slate-800 hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20"
             >
               Start Building
             </Link>

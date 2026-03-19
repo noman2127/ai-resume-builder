@@ -19,7 +19,7 @@ export default function DashboardPage() {
         </div>
         <Link
           href="/dashboard/builder"
-          className="bg-primary text-white px-8 py-4 rounded-[2rem] font-black shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group"
+          className="w-full md:w-auto bg-primary text-white px-6 py-4 md:px-8 md:py-4 rounded-[2rem] font-black shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group"
         >
           <PlusCircle className="h-6 w-6" />
           Create New Resume
@@ -54,7 +54,7 @@ export default function DashboardPage() {
       {/* AI Hero Section */}
       <div className="relative group">
         <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-[3.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-        <div className="relative glass-card bg-[#0f172a]/80 backdrop-blur-2xl p-12 md:p-16 flex flex-col items-center text-center">
+        <div className="relative glass-card bg-[#0f172a]/80 backdrop-blur-2xl p-6 sm:p-12 md:p-16 flex flex-col items-center text-center">
           <div className="bg-primary/20 h-20 w-20 rounded-[2rem] flex items-center justify-center text-primary mb-8 animate-bounce transition-all duration-700">
             <Sparkles className="h-10 w-10 text-primary" />
           </div>
@@ -64,7 +64,7 @@ export default function DashboardPage() {
           </p>
           <Link
             href="/dashboard/builder"
-            className="inline-flex items-center justify-center rounded-[2rem] bg-slate-900 text-white px-10 py-5 text-lg font-black transition-all hover:bg-slate-800 hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-[2rem] bg-slate-900 text-white px-8 md:px-10 py-4 md:py-5 text-base md:text-lg font-black transition-all hover:bg-slate-800 hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20"
           >
             Launch Builder Studio
           </Link>

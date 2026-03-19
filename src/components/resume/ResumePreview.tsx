@@ -14,11 +14,11 @@ export default function ResumePreview({ data }: ResumePreviewProps) {
     <div 
       id="resume-preview-content" 
       style={{ backgroundColor: '#ffffff', color: '#0f172a' }}
-      className="shrink-0 shadow-[0_20px_50px_rgba(0,0,0,0.1)] w-full max-w-[800px] min-h-[1050px] p-16 md:p-20 font-sans border border-[#f1f5f9] flex flex-col gap-10"
+      className="shrink-0 shadow-[0_20px_50px_rgba(0,0,0,0.1)] w-full max-w-[800px] min-h-[1050px] p-8 sm:p-12 md:p-20 font-sans border border-[#f1f5f9] flex flex-col gap-10"
     >
       {/* Header section with modern professional layout */}
       <header className="border-b-4 border-[#0f172a] pb-10 flex flex-col gap-4">
-        <h1 className="text-5xl font-black tracking-tight uppercase leading-none" style={{ color: '#0f172a' }}>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-none" style={{ color: '#0f172a' }}>
           {data.fullName || "NAME_REQUIRED"}
         </h1>
         <div className="flex flex-wrap items-center gap-x-8 gap-y-2 text-[10px] font-black uppercase tracking-[0.2em]" style={{ color: '#64748b' }}>

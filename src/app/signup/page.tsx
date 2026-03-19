@@ -60,7 +60,7 @@ export default function SignupPage() {
         </div>
 
         {/* Signup Form Card */}
-        <div className="glass-card bg-[#0f172a]/80 backdrop-blur-2xl p-10 md:p-12 shadow-[0_40px_100px_rgba(0,0,0,0.4)] border border-white/5 relative overflow-hidden">
+        <div className="glass-card bg-[#0f172a]/80 backdrop-blur-2xl p-6 sm:p-10 md:p-12 shadow-[0_40px_100px_rgba(0,0,0,0.4)] border border-white/5 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
           
           <div className="mb-10 text-center">

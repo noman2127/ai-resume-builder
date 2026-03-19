@@ -134,7 +134,7 @@ export default function DashboardLayout({
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden relative">
         {/* Top Header */}
-        <header className="h-20 border-b border-white/5 flex items-center justify-between px-8 bg-[#020617]/50 backdrop-blur-xl z-30 sticky top-0">
+        <header className="h-20 border-b border-white/5 flex items-center justify-between px-4 sm:px-8 bg-[#020617]/50 backdrop-blur-xl z-30 sticky top-0">
           <button 
             className="lg:hidden p-2 text-slate-400 hover:text-white transition-colors"
             onClick={() => setIsSidebarOpen(true)}
@@ -167,7 +167,7 @@ export default function DashboardLayout({
         </header>
 
         {/* Dynamic Page Content */}
-        <div className="flex-1 overflow-y-auto custom-scrollbar p-8 lg:p-12">
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-4 sm:p-6 lg:p-12">
           {children}
         </div>
       </main>

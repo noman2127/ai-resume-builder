@@ -80,7 +80,7 @@ export default function SettingsPage() {
           {activeTab === "profile" && (
             <div className="space-y-10">
                {/* Profile Section */}
-              <section className="glass-card bg-[#0f172a]/40 p-10 space-y-10">
+              <section className="glass-card bg-[#0f172a]/40 p-6 sm:p-10 space-y-8 sm:space-y-10">
                 <div className="flex items-center gap-6 pb-8 border-b border-white/5">
                    <div className="h-16 w-16 rounded-[1.5rem] bg-primary/20 flex items-center justify-center text-primary shadow-inner border border-primary/10">
                       <User className="h-8 w-8" />
@@ -127,12 +127,12 @@ export default function SettingsPage() {
               </section>
 
               {/* Account Deletion Area */}
-              <section className="bg-red-500/5 rounded-[3rem] border border-red-500/10 p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <section className="bg-red-500/5 rounded-[3rem] border border-red-500/10 p-6 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                  <div className="space-y-1 text-left">
                     <h3 className="text-sm font-black text-red-400 uppercase tracking-widest">Danger Zone</h3>
                     <p className="text-sm font-medium text-red-600/60">Permanently terminate your account and all stored data.</p>
                  </div>
-                 <button className="px-8 py-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-2xl text-xs font-black hover:bg-red-500 hover:text-white transition-all shadow-sm active:scale-95">
+                 <button className="w-full md:w-auto px-8 py-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-2xl text-xs font-black hover:bg-red-500 hover:text-white transition-all shadow-sm active:scale-95">
                     Terminate Account
                  </button>
               </section>
@@ -140,7 +140,7 @@ export default function SettingsPage() {
           )}
 
           {activeTab === "security" && (
-            <section className="glass-card bg-[#0f172a]/40 p-10 space-y-10">
+            <section className="glass-card bg-[#0f172a]/40 p-6 sm:p-10 space-y-8 sm:space-y-10">
                <div className="flex items-center gap-6 pb-8 border-b border-white/5">
                   <div className="h-16 w-16 rounded-[1.5rem] bg-amber-500/20 flex items-center justify-center text-amber-500 shadow-inner border border-amber-500/10">
                      <ShieldCheck className="h-8 w-8" />
@@ -168,7 +168,7 @@ export default function SettingsPage() {
           )}
 
           {(activeTab === "appearance" || activeTab === "notifications") && (
-            <div className="glass-card bg-[#0f172a]/60 p-20 text-center">
+            <div className="glass-card bg-[#0f172a]/60 p-8 sm:p-12 md:p-20 text-center">
                <div className="bg-white/5 w-24 h-24 rounded-[2rem] flex items-center justify-center mx-auto mb-10 border border-white/5">
                   <Zap className="h-10 w-10 text-slate-700" />
                </div>

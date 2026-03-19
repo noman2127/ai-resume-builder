@@ -166,7 +166,7 @@ function BuilderContent() {
   return (
     <div className="flex flex-col h-screen bg-[#020617] text-white overflow-hidden font-sans selection:bg-primary/30">
       {/* Top Professional Toolbar */}
-      <header className="h-20 glass-card bg-[#020617]/50 backdrop-blur-2xl border-b border-white/5 px-8 flex items-center justify-between z-40 shrink-0">
+      <header className="h-20 glass-card bg-[#020617]/50 backdrop-blur-2xl border-b border-white/5 px-4 sm:px-8 flex items-center justify-between z-40 shrink-0">
         <div className="flex items-center gap-6">
           <Link 
             href="/dashboard/resumes" 
@@ -195,28 +195,28 @@ function BuilderContent() {
           <button 
             onClick={handleSave}
             disabled={isSaving}
-            className="flex items-center gap-3 px-8 py-4 glass-card bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-[1.5rem] text-sm font-black transition-all active:scale-95 border border-white/5 shadow-2xl disabled:opacity-50"
+            className="flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-8 py-3 sm:py-4 glass-card bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-[1.5rem] text-xs sm:text-sm font-black transition-all active:scale-95 border border-white/5 shadow-2xl disabled:opacity-50"
           >
             {isSaving ? <Loader2 className="h-4 w-4 animate-spin text-primary" /> : <Save className="h-4 w-4 text-primary" />}
-            {isSaving ? "SYNCING..." : "SAVE DESIGN"}
+            <span className="hidden sm:inline">{isSaving ? "SYNCING..." : "SAVE DESIGN"}</span>
           </button>
           
           <button 
             onClick={handleDownload}
             disabled={isDownloading}
-            className="flex items-center gap-3 px-8 py-4 bg-primary hover:bg-indigo-400 text-white rounded-[1.5rem] text-sm font-black transition-all active:scale-95 shadow-lg shadow-primary/20 disabled:opacity-50"
+            className="flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-8 py-3 sm:py-4 bg-primary hover:bg-indigo-400 text-white rounded-[1.5rem] text-xs sm:text-sm font-black transition-all active:scale-95 shadow-lg shadow-primary/20 disabled:opacity-50"
           >
             {isDownloading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
-            EXPORT PDF
+            <span className="hidden sm:inline">EXPORT PDF</span>
           </button>
         </div>
       </header>
 
       {/* Main Studio Workspace */}
-      <div className="flex flex-1 overflow-hidden relative">
+      <div className="flex flex-col lg:flex-row flex-1 overflow-hidden relative">
         {/* Left Side: Modular Editor */}
-        <div className="w-full lg:w-[480px] flex flex-col border-r border-white/5 bg-[#080c1d] relative z-30">
-          <div className="p-8 border-b border-white/5 bg-[#020617]/30">
+        <div className="w-full lg:w-[480px] flex flex-col border-r border-white/5 bg-[#080c1d] relative z-30 lg:h-full h-[50vh] shrink-0">
+          <div className="p-4 sm:p-8 border-b border-white/5 bg-[#020617]/30">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-sm font-black text-white uppercase tracking-[0.25em]">Content Studio</h2>
               <div className="bg-primary/10 px-3 py-1 rounded-full border border-primary/20 flex items-center gap-2">
@@ -269,7 +269,7 @@ function BuilderContent() {
             )}
           </div>
 
-          <div className="flex-1 overflow-y-auto custom-scrollbar p-8 space-y-12 bg-[#020617]/40">
+          <div className="flex-1 overflow-y-auto custom-scrollbar p-4 sm:p-8 space-y-8 sm:space-y-12 bg-[#020617]/40">
             {/* Input Groups */}
             <Section title="Identity Details" icon={<User className="h-4 w-4 text-primary" />}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
@@ -319,7 +319,7 @@ function BuilderContent() {
         </div>
 
         {/* Right Side: High-Fidelity Preview */}
-        <div className="flex-1 bg-[#020617] p-12 lg:p-20 overflow-y-auto custom-scrollbar relative">
+        <div className="flex-1 bg-[#020617] p-4 sm:p-8 lg:p-20 overflow-y-auto custom-scrollbar relative lg:h-full h-[50vh]">
           <div className="absolute inset-0 opacity-10 pointer-events-none" 
                style={{ backgroundImage: 'radial-gradient(#818cf8 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
           
@@ -329,7 +329,7 @@ function BuilderContent() {
             </div>
             
             {/* Layout Controls Overlay */}
-            <div className="fixed bottom-12 right-12 z-50 flex items-center gap-3">
+            <div className="absolute bottom-6 right-6 lg:fixed lg:bottom-12 lg:right-12 z-50 flex items-center gap-3">
               <div className="glass-card bg-[#0f172a]/80 backdrop-blur-xl p-2 rounded-2xl border border-white/5 shadow-2xl flex items-center gap-2">
                 {[1, 2, 3].map((t) => (
                   <button key={t} className={`h-10 w-10 rounded-xl text-[10px] font-black transition-all ${t === 1 ? 'bg-primary text-white' : 'text-slate-400 hover:bg-white/5 hover:text-white'}`}>
